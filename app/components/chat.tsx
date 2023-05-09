@@ -564,6 +564,7 @@ export function Chat() {
   ) {
     const copiedHello = Object.assign({}, BOT_HELLO);
     if (!accessStore.isAuthorized()) {
+      debugger;
       copiedHello.content = Locale.Error.Unauthorized;
     }
     context.push(copiedHello);
