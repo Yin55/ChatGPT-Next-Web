@@ -12,6 +12,7 @@ export function ModelConfigList(props: {
     <>
       <ListItem title={Locale.Settings.Model}>
         <select
+          disabled
           value={props.modelConfig.model}
           onChange={(e) => {
             props.updateConfig(

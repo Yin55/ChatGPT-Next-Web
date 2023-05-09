@@ -34,6 +34,7 @@ export default function RootLayout({
           media="(prefers-color-scheme: dark)"
         />
         <meta name="version" content={buildConfig.commitId} />
+        <link rel="icon" href="/favicon2.ico" />
         <link rel="manifest" href="/site.webmanifest"></link>
         <link rel="preconnect" href="https://fonts.proxy.ustclug.org"></link>
         <link
