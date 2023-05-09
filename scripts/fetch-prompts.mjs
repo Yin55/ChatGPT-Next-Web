@@ -13,7 +13,7 @@ const FILE = "./public/prompts.json";
 const timeoutPromise = (timeout) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      reject(new Error('Request timeout'));
+      reject(new Error("Request timeout"));
     }, timeout);
   });
 };
@@ -32,6 +32,7 @@ async function fetchCN() {
 }
 
 async function fetchEN() {
+  return [];
   console.log("[Fetch] fetching en prompts...");
   try {
     // const raw = await (await fetch(EN_URL)).text();
@@ -40,7 +41,11 @@ async function fetchEN() {
     return raw
       .split("\n")
       .slice(1)
-      .map((v) => v.split('","').map((v) => v.replace(/^"|"$/g, '').replaceAll('""','"')));
+      .map((v) =>
+        v
+          .split('","')
+          .map((v) => v.replace(/^"|"$/g, "").replaceAll('""', '"')),
+      );
   } catch (error) {
     console.error("[Fetch] failed to fetch en prompts", error);
     return [];
