@@ -345,7 +345,7 @@ export function Settings() {
             </Popover>
           </ListItem>
 
-          <ListItem
+          {/* <ListItem
             title={Locale.Settings.Update.Version(currentVersion ?? "unknown")}
             subTitle={
               checkingUpdate
@@ -355,7 +355,7 @@ export function Settings() {
                 : Locale.Settings.Update.IsLatest
             }
           >
-            {/* {checkingUpdate ? (
+            {checkingUpdate ? (
               <LoadingIcon />
             ) : hasNewVersion ? (
               <Link href={UPDATE_URL} target="_blank" className="link">
@@ -367,8 +367,8 @@ export function Settings() {
                 text={Locale.Settings.Update.CheckUpdate}
                 onClick={() => checkUpdate(true)}
               />
-            )} */}
-          </ListItem>
+            )}
+          </ListItem> */}
 
           <ListItem title={Locale.Settings.SendKey}>
             <select
@@ -507,7 +507,7 @@ export function Settings() {
               />
             </ListItem>
           ) : null} */}
-          {/* 
+
           <ListItem
             title={Locale.Settings.Usage.Title}
             subTitle={
@@ -530,7 +530,7 @@ export function Settings() {
                 onClick={() => checkUsage(true)}
               />
             )}
-          </ListItem> */}
+          </ListItem>
         </List>
 
         <List>
