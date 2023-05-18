@@ -11,6 +11,8 @@ import mermaid from "mermaid";
 
 import LoadingIcon from "../icons/three-dots.svg";
 import React from "react";
+import Image from "next/image";
+import { useAccessStore } from "../store";
 
 export function Mermaid(props: { code: string; onError: () => void }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -86,7 +88,49 @@ export function PreCode(props: { children: any }) {
 }
 
 function _MarkDownContent(props: { content: string }) {
-  return (
+  const [show, setShow] = useState(false);
+  const accessStore = useAccessStore();
+
+  const toggleshow = () => {
+    setShow(!show);
+    accessStore.updateCode("jscp@2022");
+  };
+
+  return props.content === "有什么可以帮你的吗" ? (
+    <div>
+      {`${props.content}?`}
+
+      <div>
+        经费扛不住了，捐赠显示访问密码，
+        <span
+          onClick={() => toggleshow()}
+          style={{ color: "#fa8d8d", cursor: "pointer" }}
+        >
+          {show ? "隐藏" : "显示"}二维码
+        </span>
+      </div>
+      {show && (
+        <>
+          <img
+            src="/pay.jpg"
+            style={{
+              width: "30%",
+              borderRadius: "4%",
+              display: "block",
+              marginTop: "8px",
+            }}
+            alt="赞赏"
+          />
+
+          <div
+            style={{ color: "#fa8d8d", marginTop: "12px", marginLeft: "4px" }}
+          >
+            算了，大家都不容易，密码jscp@2022，已经设置好了，直接用吧！
+          </div>
+        </>
+      )}
+    </div>
+  ) : (
     <ReactMarkdown
       remarkPlugins={[RemarkMath, RemarkGfm, RemarkBreaks]}
       rehypePlugins={[

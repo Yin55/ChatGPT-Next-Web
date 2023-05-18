@@ -27,6 +27,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useMobileScreen } from "../utils";
 import dynamic from "next/dynamic";
 import { showToast } from "./ui-lib";
+import Image from "next/image";
 
 const ChatList = dynamic(async () => (await import("./chat-list")).ChatList, {
   loading: () => null,
@@ -102,7 +103,6 @@ export function SideBar(props: { className?: string }) {
           <ChatGptIcon />
         </div>
       </div>
-
       <div className={styles["sidebar-header-bar"]}>
         <IconButton
           icon={<MaskIcon />}
@@ -119,7 +119,6 @@ export function SideBar(props: { className?: string }) {
           shadow
         />
       </div>
-
       <div
         className={styles["sidebar-body"]}
         onClick={(e) => {
@@ -130,7 +129,6 @@ export function SideBar(props: { className?: string }) {
       >
         <ChatList narrow={shouldNarrow} />
       </div>
-
       <div className={styles["sidebar-tail"]}>
         <div className={styles["sidebar-actions"]}>
           <div className={styles["sidebar-action"] + " " + styles.mobile}>
@@ -170,7 +168,6 @@ export function SideBar(props: { className?: string }) {
           />
         </div>
       </div>
-
       <div
         className={styles["sidebar-drag"]}
         onMouseDown={(e) => onDragMouseDown(e as any)}

@@ -272,9 +272,9 @@ export function Settings() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  setTimeout(() => {
-    // accessStore.updateCode("JSCP");
-  }, 2000);
+  // setTimeout(() => {
+  //   accessStore.updateCode("jscp@2022");
+  // }, 2000);
   return (
     <ErrorBoundary>
       <div className="window-header">
