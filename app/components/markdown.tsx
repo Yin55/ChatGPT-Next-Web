@@ -125,7 +125,7 @@ function _MarkDownContent(props: { content: string }) {
           <div
             style={{ color: "#fa8d8d", marginTop: "12px", marginLeft: "4px" }}
           >
-            算了，大家都不容易，密码jscp@2022，帮你自动设置好了，直接用吧！
+            虽然...，但是大家都不容易，直接用吧！密码帮你自动填写好了。
           </div>
         </>
       )}
