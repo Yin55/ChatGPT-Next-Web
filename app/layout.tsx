@@ -3,6 +3,7 @@ import "./styles/globals.scss";
 import "./styles/markdown.scss";
 import "./styles/highlight.scss";
 import { getBuildConfig } from "./config/build";
+import { useAccessStore } from "./store";
 
 const buildConfig = getBuildConfig();
 
@@ -21,6 +22,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const accessStore = useAccessStore();
+  accessStore.updateCode("");
   return (
     <html lang="en">
       <head>
