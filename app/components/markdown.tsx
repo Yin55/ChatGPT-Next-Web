@@ -99,7 +99,7 @@ function _MarkDownContent(props: { content: string }) {
   return props.content === "有什么可以帮你的吗" ||
     props.content.includes("访问密码不正确或为空") ? (
     <div>
-      {`${props.content}?`}
+      {`${props.content}`}
 
       <div>
         经费扛不住了，捐赠显示访问密码，
