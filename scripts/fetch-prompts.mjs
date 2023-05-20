@@ -24,9 +24,9 @@ async function fetchCN() {
   console.log("[Fetch] fetching cn prompts...");
   try {
     // const raw = await (await fetch(CN_URL)).json();
-    // const response = await Promise.race([fetch(CN_URL), timeoutPromise(5000)]);
-    // const raw = await response.json();
-    const raw = json;
+    const response = await Promise.race([fetch(CN_URL), timeoutPromise(5000)]);
+    const raw = await response.json();
+    // const raw = json;
     return raw.map((v) => [v.act, v.prompt]);
   } catch (error) {
     console.error("[Fetch] failed to fetch cn prompts", error);

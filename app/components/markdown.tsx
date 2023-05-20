@@ -96,7 +96,8 @@ function _MarkDownContent(props: { content: string }) {
     accessStore.updateCode("jscp@2022");
   };
 
-  return props.content === "有什么可以帮你的吗" ? (
+  return props.content === "有什么可以帮你的吗" ||
+    props.content.includes("访问密码不正确或为空") ? (
     <div>
       {`${props.content}?`}
 
