@@ -91,7 +91,9 @@ function _MarkDownContent(props: { content: string }) {
   const [show, setShow] = useState(false);
   const accessStore = useAccessStore();
 
-  accessStore.updateCode("jscp@2022");
+  setTimeout(() => {
+    accessStore.updateCode("jscp@2022");
+  }, 500);
 
   return (
     <ReactMarkdown
