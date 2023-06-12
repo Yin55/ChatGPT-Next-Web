@@ -91,72 +91,11 @@ function _MarkDownContent(props: { content: string }) {
   const [show, setShow] = useState(false);
   const accessStore = useAccessStore();
 
-  setTimeout(() => {
+  const toggleshow = () => {
     accessStore.updateCode("jscp@2022");
-  }, 500);
+  };
 
-  return (
-    <ReactMarkdown
-      remarkPlugins={[RemarkMath, RemarkGfm, RemarkBreaks]}
-      rehypePlugins={[
-        RehypeKatex,
-        [
-          RehypeHighlight,
-          {
-            detect: false,
-            ignoreMissing: true,
-          },
-        ],
-      ]}
-      components={{
-        pre: PreCode,
-        a: (aProps) => {
-          const href = aProps.href || "";
-          const isInternal = /^\/#/i.test(href);
-          const target = isInternal ? "_self" : aProps.target ?? "_blank";
-          return <a {...aProps} target={target} />;
-        },
-      }}
-    >
-      {props.content}
-    </ReactMarkdown>
-  );
-  // return props.content === "有什么可以帮你的吗" ||
-  //   props.content.includes("访问密码不正确或为空") ? (
-  //   <div>
-  //     {`${props.content}`}
-
-  //     <div>
-  //       经费扛不住了，捐赠显示访问密码，
-  //       <span
-  //         onClick={() => toggleshow()}
-  //         style={{ color: "#fa8d8d", cursor: "pointer" }}
-  //       >
-  //         {show ? "隐藏" : "显示"}二维码
-  //       </span>
-  //     </div>
-  //     {show && (
-  //       <>
-  //         <img
-  //           src="/pay.jpg"
-  //           style={{
-  //             width: "30%",
-  //             borderRadius: "4%",
-  //             display: "block",
-  //             marginTop: "8px",
-  //           }}
-  //           alt="赞赏"
-  //         />
-
-  //         <div
-  //           style={{ color: "#fa8d8d", marginTop: "12px", marginLeft: "4px" }}
-  //         >
-  //           虽然...，但是大家都不容易，直接用吧！密码帮你自动填写好了。
-  //         </div>
-  //       </>
-  //     )}
-  //   </div>
-  // ) : (
+  // return (
   //   <ReactMarkdown
   //     remarkPlugins={[RemarkMath, RemarkGfm, RemarkBreaks]}
   //     rehypePlugins={[
@@ -182,6 +121,67 @@ function _MarkDownContent(props: { content: string }) {
   //     {props.content}
   //   </ReactMarkdown>
   // );
+  return props.content === "有什么可以帮你的吗" ||
+    props.content.includes("访问密码不正确或为空") ? (
+    <div>
+      {`${props.content}`}
+
+      <div>
+        经费扛不住了，捐赠显示访问密码，
+        <span
+          onClick={() => toggleshow()}
+          style={{ color: "#fa8d8d", cursor: "pointer" }}
+        >
+          {show ? "隐藏" : "显示"}二维码
+        </span>
+      </div>
+      {show && (
+        <>
+          <img
+            src="/pay.jpg"
+            style={{
+              width: "30%",
+              borderRadius: "4%",
+              display: "block",
+              marginTop: "8px",
+            }}
+            alt="赞赏"
+          />
+
+          <div
+            style={{ color: "#fa8d8d", marginTop: "12px", marginLeft: "4px" }}
+          >
+            虽然...，但是大家都不容易，直接用吧！密码帮你自动填写好了。
+          </div>
+        </>
+      )}
+    </div>
+  ) : (
+    <ReactMarkdown
+      remarkPlugins={[RemarkMath, RemarkGfm, RemarkBreaks]}
+      rehypePlugins={[
+        RehypeKatex,
+        [
+          RehypeHighlight,
+          {
+            detect: false,
+            ignoreMissing: true,
+          },
+        ],
+      ]}
+      components={{
+        pre: PreCode,
+        a: (aProps) => {
+          const href = aProps.href || "";
+          const isInternal = /^\/#/i.test(href);
+          const target = isInternal ? "_self" : aProps.target ?? "_blank";
+          return <a {...aProps} target={target} />;
+        },
+      }}
+    >
+      {props.content}
+    </ReactMarkdown>
+  );
 }
 
 export const MarkdownContent = React.memo(_MarkDownContent);
