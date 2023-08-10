@@ -389,7 +389,7 @@ export function Settings() {
   const showAccessCode = enabledAccessControl && !clientConfig?.isApp;
 
   setTimeout(() => {
-    accessStore.updateCode("JSCP");
+    // accessStore.updateCode("JSCP");
   }, 2000);
 
   return (
