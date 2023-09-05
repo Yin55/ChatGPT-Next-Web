@@ -342,7 +342,7 @@ export function Settings() {
   };
   const [loadingUsage, setLoadingUsage] = useState(false);
 
-  config.modelConfig.model = "gpt-3.5-turbo";
+  // config.modelConfig.model = "gpt-3.5-turbo";
 
   function checkUsage(force = false) {
     if (accessStore.hideBalanceQuery) {
