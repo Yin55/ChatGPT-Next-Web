@@ -342,7 +342,7 @@ export function Settings() {
   };
   const [loadingUsage, setLoadingUsage] = useState(false);
 
-  // config.modelConfig.model = "gpt-3.5-turbo";
+  config.modelConfig.model = "gpt-3.5-turbo";
 
   function checkUsage(force = false) {
     if (accessStore.hideBalanceQuery) {
@@ -715,7 +715,7 @@ export function Settings() {
 
         <SyncItems />
 
-        <List>
+        {/* <List>
           <ModelConfigList
             modelConfig={config.modelConfig}
             updateConfig={(updater) => {
@@ -724,7 +724,7 @@ export function Settings() {
               config.update((config) => (config.modelConfig = modelConfig));
             }}
           />
-        </List>
+        </List> */}
 
         {shouldShowPromptModal && (
           <UserPromptModal onClose={() => setShowPromptModal(false)} />
